@@ -8,20 +8,21 @@
             android:label="@string/app_name"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".com.AndroidUI.MainActivity">
+        <activity android:name=".com.AndroidUI.MainActivity"
+                android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".com.AndroidUI.student.StudentActivity">
+        <activity android:name=".com.AndroidUI.student.StudentManage">
         </activity>
-        <activity android:name=".com.AndroidUI.student.InsertActivity">
+        <activity android:name=".com.AndroidUI.student.StudentInsert">
         </activity>
-        <activity android:name=".com.AndroidUI.student.UpdataActivity">
+        <activity android:name=".com.AndroidUI.student.StudentUpdate">
         </activity>
-        <activity android:name=".com.AndroidUI.student.showAllStudentActivity">
+        <activity android:name=".com.AndroidUI.student.StudentShow">
         </activity>
     </application>
 

@@ -5,63 +5,60 @@ package com.example.administrator.book.com.model;
  */
 public class Student {
     //属性
-    private String studentNo; //学号
-    private String studentName;
-    private String studentMajor;
-    private String studentClass;
-    private String studentMobile;
+    private String no; //学号
+    private String name;//姓名
+    private String major;//专业
+    private String classes;//班级
+    private String phone;//电话
     //构造方法
-    public Student(String studentNo, String studentName, String studentMajor, String studentClass, String studentMobile) {
+    public Student(String no, String name, String major, String classes, String phone) {
         super();
-        this.studentNo = studentNo;
-        this.studentName = studentName;
-        this.studentMajor = studentMajor;
-        this.studentClass = studentClass;
-        this.studentMobile = studentMobile;
+        this.no = no;
+        this.name = name;
+        this.major = major;
+        this.classes = classes;
+        this.phone = phone;
     }
     public Student(){};
-    //getter and setter
-    public String getStudentNo() {
-        return studentNo;
+
+    public String getNo() {
+        return no;
     }
 
-    public void setStudentNo(String studentNo) {
-        this.studentNo = studentNo;
+    public void setNo(String no) {
+        this.no = no;
     }
 
-    public String getStudentName() {
-        return studentName;
+    public String getName() {
+        return name;
     }
 
-    public void setStudentName(String studentName) {
-        this.studentName = studentName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getStudentMajor() {
-        return studentMajor;
+    public String getMajor() {
+        return major;
     }
 
-    public void setStudentMajor(String studentMajor) {
-        this.studentMajor = studentMajor;
+    public void setMajor(String major) {
+        this.major = major;
     }
 
-    public String getStudentClass() {
-        return studentClass;
+    public String getClasses() {
+        return classes;
     }
 
-    public void setStudentClass(String studentClass) {
-        this.studentClass = studentClass;
+    public void setClasses(String classes) {
+        this.classes = classes;
     }
 
-    public String getStudentMobile() {
-        return studentMobile;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setStudentMobile(String studentMobile) {
-        this.studentMobile = studentMobile;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
-
-
-
 
 }

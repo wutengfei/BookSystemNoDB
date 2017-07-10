@@ -11,70 +11,70 @@ import java.util.ArrayList;
  */
 public class StudentControl {
 
-    private static StudentSet set;
-    Context context;
+    private static StudentSet studentSet;
+    private Context context;
 
     public StudentControl(Context context) {
         this.context = context;
-        set = StudentSet.getStudentList();
-
+        studentSet = StudentSet.getStudentList();
     }
 
-    public void addStudent(Student s1) {
-        set.ListInsert_S(s1);
+    //添加学生
+    public void addStudent(Student student) {
+        studentSet.insertStudent(student);
     }
 
+    //从文件中读取所有学生信息
     public void saveAll() {
-
-        set.readFile(context);
-
+        studentSet.readFile(context);
     }
 
+    //删除所有学生
     public void deleteAll() {
-        set.deleteAll();
+        studentSet.deleteAll();
     }
 
-    public boolean deleteStudentByNo(String no) {
-        ArrayList<Student> s1 = new ArrayList<Student>();
-        s1 = set.stu_search_char(no);
-        if (s1 != null) {
-            set.ListDelete_S(no);
+    //删除一个学生或一组学生
+    public boolean deleteStudent(String info) {
+        ArrayList<Student> student;
+        student = studentSet.queryStudent(info);
+        if (student != null) {
+            studentSet.deleteStudent(info);
             return true;
         }
         return false;
-
     }
 
-    public void updataByNo(Student e) {
-        String no = e.getStudentNo();
-        ArrayList<Student> s1 = new ArrayList<Student>();
-        s1 = set.stu_search_char(no);
-        if (s1 != null) {
-            set.ListDelete_S(e.getStudentNo());
-            set.ListInsert_S(e);
+    //更新
+    public void updateStudent(Student student) {
+        String no = student.getNo();//获取学生学号
+        ArrayList<Student> stuList = studentSet.queryStudent(no);//把查询结果放到ArrayList中
+        if (stuList != null) {
+            studentSet.deleteStudent(no);
+            studentSet.insertStudent(student);
         }
     }
 
-    public Student[] QueryOnByNo(String no) {
-        if (set.stu_search_char(no) == null) return null;
-        int Size = set.stu_search_char(no).size();
-        ArrayList<Student> s1 = new ArrayList<Student>();
-        s1 = set.stu_search_char(no);
-        Student s[] = new Student[Size];
-        for (int i = 0; i < Size; i++) {
-            s[i] = new Student();
-            s[i] = s1.get(i);
-        }
-        return s;
+    //查询
+    public Student[] queryStudent(String no) {
+        ArrayList<Student> stuList = studentSet.queryStudent(no);//把查询结果放到ArrayList中
+        if (stuList != null) {
+            Student[] students = new Student[stuList.size()];
+            for (int i = 0; i < stuList.size(); i++) {//将ArrayList中的学生取出来放到学生数组中
+                students[i] = stuList.get(i);
+            }
+            return students;
+        } else
+            return null;
     }
 
+    //获取所有学生信息
     public Student[] getAllStudent() {
-        int Size = set.ListLength_S();
-        Student s[] = new Student[Size];
-        for (int i = 0; i < Size; i++) {
-            s[i] = new Student();
-            s[i] = set.get(i);
+        int size = studentSet.ListLength_S();
+        Student students[] = new Student[size];
+        for (int i = 0; i < size; i++) {
+            students[i] = studentSet.get(i);
         }
-        return s;
+        return students;
     }
 }
