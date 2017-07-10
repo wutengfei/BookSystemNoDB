@@ -18,7 +18,8 @@ public class Show extends AppCompatActivity {
 
         StudentControl studentControl = new StudentControl(this);
         Student s[] = studentControl.getAllStudent();
-        
+
+
         String temp = "";
         for (int i = 0; i < s.length; i++) {
             temp+=(s[i].getNo() + " " + s[i].getName() + " " + s[i].getMajor() + " " +
