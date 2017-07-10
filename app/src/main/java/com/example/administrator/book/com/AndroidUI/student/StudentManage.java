@@ -95,7 +95,8 @@ public class StudentManage extends AppCompatActivity implements View.OnClickList
         //输出全部信息
         if (v.getId() == R.id.button7) {
             Intent intent = new Intent();
-            intent.setClass(StudentManage.this, StudentShow.class);
+           // intent.setClass(StudentManage.this, StudentShow.class);
+            intent.setClass(StudentManage.this, Show.class);
             this.startActivity(intent);
         }
     }
